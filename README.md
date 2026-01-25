@@ -1,7 +1,10 @@
+
+
 # 📘 **Complete WSL + CMake + C++ Project Guide**
 ## **From Zero to Professional Development Setup**
 
 ---
+
 
 ## **📋 TABLE OF CONTENTS**
 1. [🚀 **WSL INSTALLATION**](#1-wsl-installation)
@@ -63,6 +66,63 @@ pwd
 
 wsl --list --verbose
 # Should show Ubuntu running
+```
+
+
+```bash
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ ls
+CMakeLists.txt  README.md  Scripts  Setup_Repo.bat  include  src  tests
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ mkdir build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ cd build/
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ls
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ cmake ..
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.14.0")
+-- Configuring done (1.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/d/Linux/Linux-Application_CXX/build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ make
+[ 16%] Building CXX object CMakeFiles/math_utils.dir/src/math_utils.cpp.o
+[ 33%] Linking CXX static library libmath_utils.a
+[ 33%] Built target math_utils
+[ 50%] Building CXX object CMakeFiles/app.dir/src/main.cpp.o
+[ 66%] Linking CXX executable app
+[ 66%] Built target app
+[ 83%] Building CXX object CMakeFiles/runTests.dir/tests/test_math.cpp.o
+[100%] Linking CXX executable runTests
+[100%] Built target runTests
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ls
+ CMakeCache.txt   CTestTestfile.cmake   app                   libmath_utils.a  'runTests[1]_include.cmake'
+ CMakeFiles       Makefile              cmake_install.cmake   runTests         'runTests[1]_tests.cmake'
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ./runTests
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from MathTest
+[ RUN      ] MathTest.AddTest
+[       OK ] MathTest.AddTest (0 ms)
+[ RUN      ] MathTest.SubTest
+[       OK ] MathTest.SubTest (0 ms)
+[----------] 2 tests from MathTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 2 tests.
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ./app
+Hello from WSL + CMake!
+add(5, 3) = 8
+sub(5, 3) = 2
 ```
 
 ---
@@ -649,3 +709,4 @@ You now have a **complete professional development environment** with:
 4. Share with others
 
 **Remember:** Every professional project starts with this foundation! 🚀
+
