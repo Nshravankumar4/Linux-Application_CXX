@@ -7,14 +7,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # -----------------------------
 # Library
 # -----------------------------
-add_library(math_utils src/math_utils.cpp)
-target_include_directories(math_utils PUBLIC include)
+add_library(Main_Utils 
+	src/math_utils.cpp
+	src/Class_Object.cpp)
+
+target_include_directories(Main_Utils PUBLIC include)
 
 # -----------------------------
 # Main executable
 # -----------------------------
-add_executable(app src/main.cpp)
-target_link_libraries(app math_utils)
+add_executable(app 
+	src/main.cpp)
+target_link_libraries(app Main_Utils)
 
 # -----------------------------
 # Testing - TWO OPTIONS:
@@ -35,10 +39,12 @@ if(WIN32)
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     FetchContent_MakeAvailable(googletest)
     
-    add_executable(runTests tests/test_math.cpp)
+    add_executable(runTests 
+		tests/test_math.cpp
+		tests/Class_Object_Test.cpp)
     target_link_libraries(runTests 
       gtest_main 
-      math_utils
+      Main_Utils
     )
     
     include(GoogleTest)
@@ -47,10 +53,12 @@ else()
     # Linux: Use system-installed GTest
     find_package(GTest REQUIRED)
     
-    add_executable(runTests tests/test_math.cpp)
+    add_executable(runTests 
+		tests/test_math.cpp
+		tests/Class_Object_Test.cpp)
     target_link_libraries(runTests 
       GTest::gtest_main 
-      math_utils
+      Main_Utils
     )
     
     include(GoogleTest)
