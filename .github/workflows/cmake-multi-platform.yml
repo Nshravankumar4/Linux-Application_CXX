@@ -1,4 +1,4 @@
-name: CMake on multiple platforms
+name: CMake Build and Test
 
 on:
   push:
@@ -7,61 +7,81 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        build_type: [Release]
-        include:
-          - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
-
+  build-linux-gcc:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: recursive  # Add this if using FetchContent
+        submodules: recursive
 
-    - name: Install dependencies (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
+    - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential cmake
-        sudo apt-get install -y libgtest-dev  # For GoogleTest
 
-    - name: Install dependencies (Windows)
-      if: matrix.os == 'windows-latest'
+    - name: Configure CMake
+      run: |
+        cmake -B build \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_C_COMPILER=gcc \
+          -DCMAKE_CXX_COMPILER=g++
+
+    - name: Build
+      run: cmake --build build --config Release --parallel 4
+
+    - name: Test
+      run: |
+        cd build
+        ctest --output-on-failure --parallel 4
+
+  build-linux-clang:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install clang
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang build-essential cmake
+
+    - name: Configure CMake
+      run: |
+        cmake -B build \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_C_COMPILER=clang \
+          -DCMAKE_CXX_COMPILER=clang++
+
+    - name: Build
+      run: cmake --build build --config Release --parallel 4
+
+    - name: Test
+      run: |
+        cd build
+        ctest --output-on-failure --parallel 4
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install CMake (Windows)
       run: |
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
 
     - name: Configure CMake
-      shell: bash
       run: |
-        mkdir -p build
-        cd build
-        cmake .. \
-          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
-          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-          -DBUILD_TESTING=ON
+        cmake -B build `
+          -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      shell: bash
       run: |
-        cd build
-        cmake --build . --config ${{ matrix.build_type }}
+        cmake --build build --config Release --parallel 4
 
     - name: Test
-      shell: bash
       run: |
         cd build
-        ctest --output-on-failure --build-config ${{ matrix.build_type }}
+        ctest --output-on-failure --build-config Release --parallel 4
