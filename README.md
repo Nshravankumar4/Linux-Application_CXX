@@ -790,4 +790,109 @@ You now have a **complete professional development environment** with:
 **Remember:** Every professional project starts with this foundation! 🚀
 
 
+```bash
+OutPut!
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ rm -r build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ ls
+CMakeLists.txt  README.md  Scripts  include  src  tests
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ mkdir build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ cd build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ cmake ..
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.14.0")
+-- Configuring done (1.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/d/Linux/Linux-Application_CXX/build
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ls
+ CMakeCache.txt   CMakeFiles   CTestTestfile.cmake   Makefile   cmake_install.cmake  'runTests[1]_include.cmake'
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ make
+[ 10%] Building CXX object CMakeFiles/Main_Utils.dir/src/math_utils.cpp.o
+[ 20%] Building CXX object CMakeFiles/Main_Utils.dir/src/Class_Object.cpp.o
+[ 30%] Building CXX object CMakeFiles/Main_Utils.dir/src/EncapsulationBankAccount.cpp.o
+[ 40%] Linking CXX static library libMain_Utils.a
+[ 40%] Built target Main_Utils
+[ 50%] Building CXX object CMakeFiles/app.dir/src/main.cpp.o
+[ 60%] Linking CXX executable app
+[ 60%] Built target app
+[ 70%] Building CXX object CMakeFiles/runTests.dir/tests/test_math.cpp.o
+[ 80%] Building CXX object CMakeFiles/runTests.dir/tests/Class_Object_Test.cpp.o
+[ 90%] Building CXX object CMakeFiles/runTests.dir/tests/EncapsulationBankAccount_Test.cpp.o
+[100%] Linking CXX executable runTests
+[100%] Built target runTests
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ls
+ CMakeCache.txt   CTestTestfile.cmake   app                   libMain_Utils.a  'runTests[1]_include.cmake'
+ CMakeFiles       Makefile              cmake_install.cmake   runTests         'runTests[1]_tests.cmake'
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ app
+Command 'app' not found, did you mean:
+  command 'tpp' from deb tpp (1.3.1-8)
+  command 'apt' from deb apt (2.8.3)
+  command 'apg' from deb apg (2.2.3.dfsg.1-5build2)
+  command 'cpp' from deb cpp (4:13.2.0-2ubuntu1)
+  command 'pp' from deb libpar-packer-perl (1.061-1)
+  command 'arp' from deb net-tools (2.10-0.1ubuntu4.4)
+  command 'gpp' from deb gpp (2.28-1)
+  command 'yapp' from deb libparse-yapp-perl (1.21-3)
+  command 'mpp' from deb makepp (2.0.98.5-2.1)
+Try: sudo apt install <deb name>
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ./app
+Hello from WSL + CMake!
+add(5, 3) = 8
+sub(5, 3) = 2
+divide(4, 2) = 2
+mul(6, 3) = 12
+This Program is about Class and Object
+10 is Even
+3 is Odd
+Current Balance: 1300
+Insufficient balance!
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$ ./runTests
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 9 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from MathTest
+[ RUN      ] MathTest.AddTest
+[       OK ] MathTest.AddTest (0 ms)
+[ RUN      ] MathTest.SubTest
+[       OK ] MathTest.SubTest (0 ms)
+[ RUN      ] MathTest.DivideTest
+[       OK ] MathTest.DivideTest (0 ms)
+[ RUN      ] MathTest.MulTest
+[       OK ] MathTest.MulTest (0 ms)
+[----------] 4 tests from MathTest (1 ms total)
+
+[----------] 1 test from MyClassTest
+[ RUN      ] MyClassTest.EvenOrOddCheck
+[       OK ] MyClassTest.EvenOrOddCheck (0 ms)
+[----------] 1 test from MyClassTest (0 ms total)
+
+[----------] 4 tests from BankAccountTest
+[ RUN      ] BankAccountTest.DepositTest
+[       OK ] BankAccountTest.DepositTest (0 ms)
+[ RUN      ] BankAccountTest.WithdrawTest
+[       OK ] BankAccountTest.WithdrawTest (0 ms)
+[ RUN      ] BankAccountTest.WithdrawOverBalanceTest
+Insufficient balance!
+[       OK ] BankAccountTest.WithdrawOverBalanceTest (0 ms)
+[ RUN      ] BankAccountTest.MultipleOperationsTest
+[       OK ] BankAccountTest.MultipleOperationsTest (0 ms)
+[----------] 4 tests from BankAccountTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 3 test suites ran. (4 ms total)
+[  PASSED  ] 9 tests.
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX/build$
+``
+
+
 
