@@ -124,6 +124,70 @@ Hello from WSL + CMake!
 add(5, 3) = 8
 sub(5, 3) = 2
 ```
+```bash
+
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$ ./Scripts/build_run.sh main
+================================
+  Building: Linux-Application_CXX
+================================
+[1/5] Cleaning previous build...
+[2/5] Creating build directory...
+[3/5] Configuring CMake...
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.14.0")
+-- Configuring done (1.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/d/Linux/Linux-Application_CXX/build
+[4/5] Building project...
+[ 16%] Building CXX object CMakeFiles/math_utils.dir/src/math_utils.cpp.o
+[ 33%] Linking CXX static library libmath_utils.a
+[ 33%] Built target math_utils
+[ 50%] Building CXX object CMakeFiles/runTests.dir/tests/test_math.cpp.o
+[ 66%] Building CXX object CMakeFiles/app.dir/src/main.cpp.o
+[ 83%] Linking CXX executable app
+[ 83%] Built target app
+[100%] Linking CXX executable runTests
+[100%] Built target runTests
+[5/5] Running...
+--------------------------------
+Running application:
+Hello from WSL + CMake!
+add(5, 3) = 8
+sub(5, 3) = 2
+--------------------------------
+Running tests:
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from MathTest
+[ RUN      ] MathTest.AddTest
+[       OK ] MathTest.AddTest (0 ms)
+[ RUN      ] MathTest.SubTest
+[       OK ] MathTest.SubTest (0 ms)
+[----------] 2 tests from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
+================================
+Build completed successfully!
+Project: /mnt/d/Linux/Linux-Application_CXX
+Build:   /mnt/d/Linux/Linux-Application_CXX/build
+================================
+shravannunsavath@DESKTOP-9ASPK4E:/mnt/d/Linux/Linux-Application_CXX$
+```
+
 
 ---
 
@@ -709,4 +773,5 @@ You now have a **complete professional development environment** with:
 4. Share with others
 
 **Remember:** Every professional project starts with this foundation! 🚀
+
 
