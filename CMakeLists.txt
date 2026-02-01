@@ -119,7 +119,6 @@ else()
         tests/EncapsulationBankAccount_Test.cpp
         tests/BankAccount_Test.cpp
 	tests/InheritanceVehicleCar_Test.cpp
-
     )
 
     # Link GoogleTest and project library
