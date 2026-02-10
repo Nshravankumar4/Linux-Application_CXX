@@ -10,7 +10,7 @@ public:
     Account() {}
 
     // ❌ Should be const
-    int getBalance()                 // ❌ readability-make-member-function-const
+    int getBalance() const                 // ❌ readability-make-member-function-const
     {
         return balance;
     }
@@ -40,7 +40,7 @@ void castViolation()
 
 void nullptrViolation()
 {
-    int* p = NULL;                   // ❌ modernize-use-nullptr
+    int* p = nullptr;                   // ❌ modernize-use-nullptr
 }
 
 void memoryViolation()
