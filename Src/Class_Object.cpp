@@ -7,15 +7,15 @@ using namespace std;         // OR use std::cout, std::endl
 // Member function definition outside the class
 void MyClass::FindEvenOrOdd(int a) {
     // Print message to indicate the operation being performed
-    cout << "Checking the given number is Odd or Even:" << endl;
+    cout << "Checking the given number is Odd or Even:"; // warning: do not use 'endl' with streams; use '\n' instead [performance-avoid-endl]
 
     // Condition to check if the number is divisible by 2
     if (a % 2 == 0) {
         // If remainder is 0, the number is Even
-        cout << a << " is Even Number" << endl;
+        cout << a << " is Even Number";
     } else {
         // If remainder is not 0, the number is Odd
-        cout << a << " is Odd Number" << endl;
+        cout << a << " is Odd Number";
     }
 }
 
