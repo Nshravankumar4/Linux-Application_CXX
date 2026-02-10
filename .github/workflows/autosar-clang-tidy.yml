@@ -1,0 +1,38 @@
+name: AUTOSAR Clang-Tidy Full Project Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  clang-tidy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install clang-tidy
+        run: |
+          sudo apt update
+          sudo apt install -y clang clang-tidy
+
+      - name: Verify compile_commands.json
+        run: |
+          if [ ! -f compile_commands.json ]; then
+            echo "❌ ERROR: compile_commands.json missing"
+            exit 1
+          fi
+
+      - name: Run AUTOSAR clang-tidy (ALL FILES)
+        run: |
+          echo "======================================"
+          echo " AUTOSAR C++ STATIC ANALYSIS STARTED"
+          echo "======================================"
+
+          clang-tidy \
+            Src/*.cpp \
+            -p . \
+            --warnings-as-errors='*' \
+            -extra-arg=-fno-color-diagnostics
