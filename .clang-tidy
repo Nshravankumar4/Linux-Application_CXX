@@ -1,21 +1,22 @@
 Checks: >
   -*,
   autosar-*,
+  bugprone-*,
+  performance-*,
+  readability-*,
+  modernize-*,
   cppcoreguidelines-owning-memory,
   cppcoreguidelines-pro-bounds-pointer-arithmetic,
   cppcoreguidelines-pro-type-const-cast,
   cppcoreguidelines-pro-type-reinterpret-cast,
-  modernize-use-nullptr,
-  modernize-use-override,
-  modernize-use-using,
-  readability-make-member-function-const,
-  bugprone-*,
-  performance-*
+  readability-make-member-function-const
 
 WarningsAsErrors: >
   autosar-*,
-  cppcoreguidelines-owning-memory
+  cppcoreguidelines-owning-memory,
+  cppcoreguidelines-pro-type-const-cast,
+  cppcoreguidelines-pro-type-reinterpret-cast
 
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: 'Src/.*'
 AnalyzeTemporaryDtors: false
 FormatStyle: none
