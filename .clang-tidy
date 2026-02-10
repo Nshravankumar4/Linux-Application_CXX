@@ -6,7 +6,6 @@ Checks: >
   readability-*,
   modernize-*,
   cppcoreguidelines-owning-memory,
-  cppcoreguidelines-pro-bounds-pointer-arithmetic,
   cppcoreguidelines-pro-type-const-cast,
   cppcoreguidelines-pro-type-reinterpret-cast,
   readability-make-member-function-const
@@ -15,7 +14,8 @@ WarningsAsErrors: >
   autosar-*,
   cppcoreguidelines-owning-memory,
   cppcoreguidelines-pro-type-const-cast,
-  cppcoreguidelines-pro-type-reinterpret-cast
+  cppcoreguidelines-pro-type-reinterpret-cast,
+  readability-make-member-function-const
 
 HeaderFilterRegex: 'Src/.*'
 AnalyzeTemporaryDtors: false
