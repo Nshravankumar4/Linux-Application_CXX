@@ -11,7 +11,7 @@ BankAccount::BankAccount() {
 void BankAccount::add(double amount) {
     balance += amount;            // Modify encapsulated data
 }
-
+ 
 // Withdraw amount from balance
 bool BankAccount::sub(double amount) {
 
