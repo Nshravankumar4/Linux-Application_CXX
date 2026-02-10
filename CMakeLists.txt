@@ -18,6 +18,22 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ==================================================
+# AUTOSAR / clang-tidy configuration
+# (ADD THIS BLOCK HERE — after project & C++ standard)
+# ==================================================
+find_program(CLANG_TIDY_EXE NAMES clang-tidy)
+
+if(CLANG_TIDY_EXE)
+    message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
+    set(CMAKE_CXX_CLANG_TIDY
+        ${CLANG_TIDY_EXE};
+        -warnings-as-errors=autosar-*
+    )
+else()
+    message(WARNING "clang-tidy not found!")
+endif()
+
+# ==================================================
 # LIBRARY SECTION
 # ==================================================
 # Create a static/shared library named Main_Utils
@@ -92,7 +108,7 @@ if(WIN32)
         Test/test_math.cpp
         Test/Class_Object_Test.cpp
         Test/EncapsulationBankAccount_Test.cpp
-	Test/BankAccount_Test.cpp
+        Test/BankAccount_Test.cpp
         Test/InheritanceVehicleCar_Test.cpp
     )
 
@@ -118,7 +134,7 @@ else()
         Test/Class_Object_Test.cpp
         Test/EncapsulationBankAccount_Test.cpp
         Test/BankAccount_Test.cpp
-	Test/InheritanceVehicleCar_Test.cpp
+        Test/InheritanceVehicleCar_Test.cpp
     )
 
     # Link GoogleTest and project library
