@@ -46,7 +46,7 @@ void nullptrViolation()
 void memoryViolation()
 {
     int* p = new int(42);            // ❌ cppcoreguidelines-owning-memory
-    cout << *p << endl;
+    cout << *p << "\n";
     // ❌ no delete → leak
 }
 
@@ -55,7 +55,7 @@ int main()
     Account acc;
     acc.setBalance(100);
 
-    cout << acc.getBalance() << endl;
+    cout << acc.getBalance() << "\n";
 
     pointerArithmeticViolation();
     castViolation();

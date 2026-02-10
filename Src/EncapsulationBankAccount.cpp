@@ -17,7 +17,7 @@ void BankAccount::withdraw(double amount) {
     if (amount <= balance) {   // Check if withdrawal is possible
         balance -= amount;     // Deduct amount from balance
     } else {
-        cout << "Insufficient balance!" << endl; // Print error if not enough balance
+        cout << "Insufficient balance!" << "\n"; // Print error if not enough balance
     }
 }
 
