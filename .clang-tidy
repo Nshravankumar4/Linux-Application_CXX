@@ -19,5 +19,4 @@ WarningsAsErrors: >
   modernize-use-nullptr
 
 HeaderFilterRegex: '.*'
-AnalyzeTemporaryDtors: false
 FormatStyle: none
