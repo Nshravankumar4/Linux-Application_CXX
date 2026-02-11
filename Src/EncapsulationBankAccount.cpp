@@ -3,17 +3,17 @@
 using namespace std;          // Allows using cout without std::
 
 /* Constructor definition */
-BankAccount::BankAccount(double initBalance) {
+EncapsulationBankAccount::EncapsulationBankAccount(double initBalance) {
     balance = initBalance;     // Initialize the private balance with the given value
 }
 
 /* Deposit function definition */
-void BankAccount::deposit(double amount) {
+void EncapsulationBankAccount::deposit(double amount) {
     balance += amount;         // Add the given amount to the current balance
 }
 
 /* Withdraw function definition */
-void BankAccount::withdraw(double amount) {
+void EncapsulationBankAccount::withdraw(double amount) {
     if (amount <= balance) {   // Check if withdrawal is possible
         balance -= amount;     // Deduct amount from balance
     } else {
@@ -22,7 +22,7 @@ void BankAccount::withdraw(double amount) {
 }
 
 /* Getter function definition */
-double BankAccount::getBalance() {
+double EncapsulationBankAccount::getBalance() const{
     return balance;            // Return the current balance
 }
 

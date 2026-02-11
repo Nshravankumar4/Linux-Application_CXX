@@ -1,10 +1,10 @@
-#ifndef BANK_ACCOUNT_H       // Include guard: prevents multiple inclusion of this header file
-#define BANK_ACCOUNT_H
+#ifndef ENCAPSULATIONBANKACCOUNT_H       // Include guard: prevents multiple inclusion of this header file
+#define ENCAPSULATIONBANKACCOUNT_H
 
 // -----------------------------
-// Class Declaration: BankAccount
+// Class Declaration: EncapsulationBankAccount
 // -----------------------------
-class BankAccount {
+class EncapsulationBankAccount {
 private: 
     // Private data member: accessible only within this class
     double balance;           // Stores the current balance of the bank account
@@ -14,7 +14,7 @@ public:
     // Constructor
     // -----------------------------
     // Initialize the bank account with a starting balance
-    BankAccount(double initBalance);
+    EncapsulationBankAccount(double initBalance);
 
     // -----------------------------
     // Deposit function
@@ -33,7 +33,7 @@ public:
     // Getter function
     // -----------------------------
     // Returns the current balance of the account
-    double getBalance();
+    double getBalance() const;
 
     // -----------------------------
     // Safe withdrawal function
@@ -44,4 +44,4 @@ public:
     void checkBalanceBeforewithdraw(double amount);
 };
 
-#endif // BANK_ACCOUNT_H
+#endif // ENCAPSULATIONBANKACCOUNT_H

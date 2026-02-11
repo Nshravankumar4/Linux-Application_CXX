@@ -32,7 +32,7 @@ int main() {
 
     
 // Create an object 'acc' of BankAccount class with initial balance 1000
-    BankAccount acc(1000);
+    EncapsulationBankAccount acc(1000);
 
     // Deposit 500 into the account
     acc.deposit(500);
