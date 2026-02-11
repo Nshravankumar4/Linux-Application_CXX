@@ -1,0 +1,12 @@
+[
+  {
+    "directory": ".",
+    "command": "g++ -std=c++17 -Wall -Wextra -ISrc -c Src/BankAccount.cpp",
+    "file": "Src/BankAccount.cpp"
+  },
+  {
+    "directory": ".",
+    "command": "g++ -std=c++17 -Wall -Wextra -ISrc -c Src/main.cpp",
+    "file": "Src/main.cpp"
+  }
+]

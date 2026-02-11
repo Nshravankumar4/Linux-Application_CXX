@@ -12,7 +12,7 @@ void Vehicle::setSpeed(int s) {
 
 // Child function
 void Car::showSpeed() {
-    cout << "Car speed is: " << speed << endl;
+    cout << "Car speed is: " << speed <<"\n";
 }
 
 //child function

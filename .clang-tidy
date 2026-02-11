@@ -14,8 +14,9 @@ Checks: >
 
 WarningsAsErrors: >
   autosar-*,
-  cppcoreguidelines-owning-memory
+  cppcoreguidelines-owning-memory,
+  cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  modernize-use-nullptr
 
 HeaderFilterRegex: '.*'
-AnalyzeTemporaryDtors: false
 FormatStyle: none

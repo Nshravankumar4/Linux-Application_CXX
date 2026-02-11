@@ -1,0 +1,45 @@
+name: AUTOSAR Clang-Tidy Full Project Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  autosar-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            clang \
+            clang-tidy \
+            cmake \
+            make \
+            libgtest-dev
+
+      - name: Configure project (generate compile_commands.json)
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_CXX_COMPILER=clang++ \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      - name: Verify compile_commands.json
+        run: |
+          if [ ! -f build/compile_commands.json ]; then
+            echo "❌ compile_commands.json missing"
+            exit 1
+          fi
+
+      - name: Run clang-tidy (ALL source files)
+        run: |
+          clang-tidy \
+            Src/*.cpp \
+            Include/*.h \
+            -p build \
+            --warnings-as-errors='*'

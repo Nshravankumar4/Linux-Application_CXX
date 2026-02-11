@@ -9,11 +9,11 @@ using namespace std;
 
 // Main Program Start Here
 int main() {
-    cout << "Hello from WSL + CMake!" << endl;
-    cout << "add(5, 3) = " << add(5, 3) << endl;
-    cout << "sub(5, 3) = " << sub(5, 3) << endl;
-    cout << "divide(4, 2) = " << divide(4, 2) << endl;
-    cout << "mul(6, 3) = " << mul(6, 2) << endl;
+    cout << "Hello from WSL + CMake!\n";
+    cout << "add(5, 3) = " << add(5, 3)<<"\n";
+    cout << "sub(5, 3) = " << sub(5, 3)<<"\n";
+    cout << "divide(4, 2) = " << divide(4, 2) <<"\n";
+    cout << "mul(6, 3) = " << mul(6, 2) <<"\n";
 
     // Print program description
     cout << "This Program is about Class and Object\n";
@@ -23,16 +23,16 @@ int main() {
 
     // Call the member function using the object
     // Passing value 10 as input to check even or odd
-    cout << "10 is " << obj.FindStrEvenOrOdd(10) << endl;
+    cout << "10 is " << obj.FindStrEvenOrOdd(10)<<"\n";
 
     // Call the member function using the object
     // Passing value 10 as input to check even or odd
-    cout << "3 is " << obj.FindStrEvenOrOdd(3) << endl;
+    cout << "3 is " << obj.FindStrEvenOrOdd(3) <<"\n";
     // Use string-returning function for printing
 
     
 // Create an object 'acc' of BankAccount class with initial balance 1000
-    BankAccount acc(1000);
+    EncapsulationBankAccount acc(1000);
 
     // Deposit 500 into the account
     acc.deposit(500);
@@ -41,7 +41,7 @@ int main() {
     acc.withdraw(200);
 
     // Print the current balance using getBalance()
-    cout << "Current Balance: " << acc.getBalance() << endl;
+    cout << "Current Balance: " << acc.getBalance() << "\n";
 
     // Try withdrawing more than the balance to see the error message
     acc.withdraw(2000);
@@ -63,7 +63,7 @@ cr.showSpeed();   // void function prints inside
 
 Bike bk;
 bk.setSpeed(100);
-cout << "Bike is: " << bk.AlertFunction() << endl;  // call via object
+cout << "Bike is: " << bk.AlertFunction() << "\n";  // call via object
 
     // Return 0 indicates successful program execution
     return 0;
