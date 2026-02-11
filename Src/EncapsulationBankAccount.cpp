@@ -22,7 +22,11 @@ void EncapsulationBankAccount::withdraw(double amount) {
 }
 
 /* Getter function definition */
+<<<<<<< HEAD
 double EncapsulationBankAccount::getBalance() const{
+=======
+double BankAccount::getBalance() {
+>>>>>>> a57a0ba8498de2fc65a893cebb212158f31c77e6
     return balance;            // Return the current balance
 }
 
